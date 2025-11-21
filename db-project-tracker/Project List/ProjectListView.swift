@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ProjectListView: View {
+    
+    @State private var newProject: Project?
+    
     var body: some View {
         
         ZStack{
@@ -43,7 +46,8 @@ struct ProjectListView: View {
                 HStack {
                     
                     Button(action: {
-                        // TODO
+                        // Create new project
+                        self.newProject = Project()
                     }, label: {
                         
                         ZStack {
@@ -58,6 +62,10 @@ struct ProjectListView: View {
                 }
             }
             .padding()
+        }
+        .sheet(item: $newProject) { project in
+            AddProjectView(project: project)
+                .presentationDetents([.fraction(0.2)])
         }
     }
 }
