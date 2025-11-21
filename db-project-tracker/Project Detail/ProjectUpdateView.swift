@@ -14,6 +14,7 @@ struct ProjectUpdateView: View {
             
             Rectangle()
                 .foregroundStyle(.black)
+                .shadow(radius: 5, x: 0, y: 4)
             
             VStack(alignment: .leading, spacing: 10) {
                 

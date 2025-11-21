@@ -59,9 +59,9 @@ struct ProjectDetailView: View {
                 }
                 
                 // Project updates
-                ScrollView {
+                ScrollView(showsIndicators: false) {
                     
-                    VStack {
+                    VStack(spacing: 27) {
                         
                         ProjectUpdateView()
                         ProjectUpdateView()
@@ -71,7 +71,42 @@ struct ProjectDetailView: View {
                         ProjectUpdateView()
                     }
                     .padding()
+                    .padding(.bottom, 80)
                     
+                }
+            }
+            
+            VStack {
+                
+                Spacer()
+                
+                HStack {
+                    
+                    Button(action: {
+                        // TODO: Add project update
+                    }, label: {
+                        ZStack {
+                            Circle()
+                                .foregroundStyle(.black)
+                                .frame(width: 65)
+                            Image(.cross)
+                        }
+                    })
+                    .padding([.leading, .top])
+                    Spacer()
+                    Button("Back") {
+                        dismiss()
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .foregroundStyle(.white)
+                    .tint(.black)
+                    .padding([.trailing, .top])
+                }
+                .background {
+                    Color.black
+                        .opacity(0.5)
+                        .clipShape(.rect(topLeadingRadius: 15, topTrailingRadius: 15))
+                        .ignoresSafeArea()
                 }
             }
         }
