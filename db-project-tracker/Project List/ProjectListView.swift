@@ -15,52 +15,61 @@ struct ProjectListView: View {
     
     var body: some View {
         
-        ZStack{
+        NavigationStack {
             
-            LinearGradient(colors: [Color(.deepPurple), Color(.blushPink)], startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
-            
-            VStack(alignment: .leading) {
+            ZStack{
                 
-                Text("Projects")
-                    .font(Font.screenHeading)
-                    .foregroundStyle(.white)
+                LinearGradient(colors: [Color(.deepPurple), Color(.blushPink)], startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
                 
-                ScrollView(showsIndicators: false) {
+                VStack(alignment: .leading) {
                     
-                    VStack(alignment: .leading, spacing: 26) {
+                    Text("Projects")
+                        .font(Font.screenHeading)
+                        .foregroundStyle(.white)
+                    
+                    ScrollView(showsIndicators: false) {
                         
-                        ForEach(projects) { proj in
-                            ProjectCardView(project: proj)
+                        VStack(alignment: .leading, spacing: 26) {
+                            
+                            ForEach(projects) { proj in
+                                
+                                NavigationLink {
+                                    ProjectDetailView(project: proj)
+                                } label: {
+                                    ProjectCardView(project: proj)
+                                }
+                                .buttonStyle(.plain)
+                            }
                         }
                     }
                 }
-            }
-            .padding(20)
-            
-            VStack {
+                .padding(20)
                 
-                Spacer()
-                
-                HStack {
+                VStack {
                     
-                    Button(action: {
-                        // Create new project
-                        self.newProject = Project()
-                    }, label: {
-                        
-                        ZStack {
-                            
-                            Circle()
-                                .frame(width: 65)
-                                .foregroundStyle(.black)
-                            Image(.cross)
-                        }
-                    })
                     Spacer()
+                    
+                    HStack {
+                        
+                        Button(action: {
+                            // Create new project
+                            self.newProject = Project()
+                        }, label: {
+                            
+                            ZStack {
+                                
+                                Circle()
+                                    .frame(width: 65)
+                                    .foregroundStyle(.black)
+                                Image(.cross)
+                            }
+                        })
+                        Spacer()
+                    }
                 }
+                .padding()
             }
-            .padding()
         }
         .sheet(item: $newProject) { project in
             AddProjectView(project: project)
