@@ -33,7 +33,13 @@ struct ProjectListView: View {
                         VStack(alignment: .leading, spacing: 26) {
                             
                             ForEach(projects) { proj in
-                                ProjectCardView(project: proj)
+                                
+                                NavigationLink {
+                                    ProjectDetailView(project: proj)
+                                } label: {
+                                    ProjectCardView(project: proj)
+                                }
+                                .buttonStyle(.plain)
                             }
                         }
                     }
