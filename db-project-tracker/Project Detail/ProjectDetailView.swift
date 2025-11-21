@@ -18,35 +18,61 @@ struct ProjectDetailView: View {
             LinearGradient(colors: [Color(.navy), Color(.skyBlue)], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
-            VStack(alignment: .leading, spacing: 13) {
+            VStack {
                 
-                Text(project.name)
-                    .font(Font.screenHeading)
-                
-                HStack(alignment: .center, spacing: 13) {
+                // Header
+                VStack(alignment: .leading, spacing: 13) {
                     
-                    Spacer()
+                    Text(project.name)
+                        .font(Font.screenHeading)
                     
-                    StatBubbleView(title: "Hours", stat: "290", startColor: Color.navy, endColor: Color.blue)
-                    StatBubbleView(title: "Sessions", stat: "34", startColor: Color.turtleGreen, endColor: Color.lime)
-                    StatBubbleView(title: "Updates", stat: "32", startColor: Color.maroon, endColor: Color.fuschia)
-                    StatBubbleView(title: "Wins", stat: "9", startColor: Color.maroon, endColor: Color.olive   )
+                    HStack(alignment: .center, spacing: 13) {
+                        
+                        Spacer()
+                        
+                        StatBubbleView(title: "Hours", stat: "290", startColor: Color.navy, endColor: Color.blue)
+                        StatBubbleView(title: "Sessions", stat: "34", startColor: Color.turtleGreen, endColor: Color.lime)
+                        StatBubbleView(title: "Updates", stat: "32", startColor: Color.maroon, endColor: Color.fuschia)
+                        StatBubbleView(title: "Wins", stat: "9", startColor: Color.maroon, endColor: Color.olive   )
+                        
+                        Spacer()
+                    }
                     
-                    Spacer()
+                    Text("My current focus is...")
+                        .font(Font.featuredText)
+                    
+                    HStack {
+                        
+                        Image(systemName: "checkmark.square")
+                        Text("Design the new website")
+                            .font(Font.featuredText)
+                    }
+                    .padding(.leading)
+                }
+                .foregroundStyle(.white)
+                .padding()
+                .background {
+                    Color(.black)
+                        .opacity(0.7)
+                        .clipShape(.rect(bottomLeadingRadius: 15, bottomTrailingRadius: 15))
+                        .ignoresSafeArea()
                 }
                 
-                Text("My current focus is...")
-                    .font(Font.featuredText)
-                
-                Text("Design the new website")
-                    .font(Font.featuredText)
-            }
-            .foregroundStyle(.white)
-            .padding()
-            .background {
-                Color(.black)
-                    .opacity(0.7)
-                    .clipShape(.rect(bottomLeadingRadius: 15, bottomTrailingRadius: 15))
+                // Project updates
+                ScrollView {
+                    
+                    VStack {
+                        
+                        ProjectUpdateView()
+                        ProjectUpdateView()
+                        ProjectUpdateView()
+                        ProjectUpdateView()
+                        ProjectUpdateView()
+                        ProjectUpdateView()
+                    }
+                    .padding()
+                    
+                }
             }
         }
         .navigationBarBackButtonHidden(true)
