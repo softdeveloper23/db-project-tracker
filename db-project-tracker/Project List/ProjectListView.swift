@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ProjectListView: View {
     
     @State private var newProject: Project?
+    @Query private var projects: [Project]
     
     var body: some View {
         
@@ -28,12 +30,9 @@ struct ProjectListView: View {
                     
                     VStack(alignment: .leading, spacing: 26) {
                         
-                        ProjectCardView()
-                        ProjectCardView()
-                        ProjectCardView()
-                        ProjectCardView()
-                        ProjectCardView()
-                        ProjectCardView()
+                        ForEach(projects) { proj in
+                            ProjectCardView(project: proj)
+                        }
                     }
                 }
             }
