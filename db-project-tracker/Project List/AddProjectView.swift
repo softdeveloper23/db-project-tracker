@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AddProjectView: View {
+    
+    @Environment(\.dismiss) private var dismiss
+    @Environment(\.modelContext) private var context
     
     var project: Project
     @State var projectName: String = ""
@@ -31,7 +35,9 @@ struct AddProjectView: View {
                         .textFieldStyle(.roundedBorder)
                     
                     Button("Save") {
-                        // TODO: Save project to SwiftData
+                        project.name = projectName
+                        context.insert(project)
+                        dismiss()
                     }
                     .buttonStyle(.borderedProminent)
                     .tint(.blue)
