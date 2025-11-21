@@ -1,0 +1,162 @@
+# iOS/Xcode .gitignore Template
+# Updated for modern iOS development with Xcode and Swift
+
+## API Keys and Secrets (CRITICAL - ALWAYS ADD YOUR FILES HERE)
+# Never commit API keys, tokens, or credentials to version control
+Config.xcconfig
+Secrets.plist
+APIKeys.plist
+GoogleService-Info.plist
+*.env
+.env*
+secrets.swift
+APIKeys.swift
+# Add any other files containing API keys or secrets below:
+
+
+
+## Xcode User-Specific Files
+# These contain personal settings and should never be shared
+xcuserdata/
+*.xcuserstate
+*.xcuserdata
+IDEWorkspaceChecks.plist
+
+## Xcode Project Workspaces
+# User-specific workspace settings
+*.xcworkspace/xcuserdata/
+project.xcworkspace/xcuserdata/
+
+## Build Products and Derived Data
+# Generated files that can be recreated by Xcode
+DerivedData/
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+build/
+Build/
+
+## Compiled Source Files
+# Object files and compiled code
+*.o
+*.lo
+*.slo
+*.ko
+*.obj
+*.elf
+
+## Compiled Static Libraries
+*.la
+*.a
+*.lib
+
+## Compiled Dynamic Libraries
+*.so
+*.dylib
+*.dll
+
+## Precompiled Headers
+*.gch
+*.pch
+
+## Swift Package Manager
+# Package resolved pins - commit Package.resolved for apps, ignore for libraries
+.swiftpm/
+.build/
+# Uncomment the next line if developing a library (not an app)
+# Package.resolved
+
+## CocoaPods
+# Pods folder contains dependencies - can be regenerated from Podfile
+Pods/
+# Podfile.lock should be committed for apps to ensure consistent dependencies
+# Uncomment the next line if you want to ignore it (not recommended for apps)
+# Podfile.lock
+
+## Carthage
+# Build products from Carthage dependencies
+Carthage/Build/
+Carthage/Checkouts/
+
+## Accio (Swift Package Manager for iOS)
+Dependencies/
+.accio/
+
+## Fastlane
+# Automated deployment tool - ignore generated reports and screenshots
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+fastlane/.env*
+fastlane/README.md
+
+## Code Coverage
+*.gcda
+*.gcno
+*.gcov
+
+## Playgrounds
+# Xcode Playgrounds timeline data
+timeline.xctimeline
+playground.xcworkspace
+
+## Swift Package Manager Package File
+# Uncomment if you're developing a Swift package
+# .swiftpm
+
+## AppCode
+# JetBrains IDE specific files
+.idea/
+*.iml
+
+## macOS System Files
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+## Temporary Files
+*.swp
+*.swo
+*~.nib
+*.tmp
+*.bak
+*.moved-aside
+
+## Debugging
+*.log
+
+## Archives
+*.zip
+*.tar.gz
+*.rar
+
+## SwiftLint
+# Linting reports
+.swiftlint.yml
+swiftlint_report.html
+
+## Backup Files
+*~
+*.backup
+*.orig
+
+## R.swift (Resource code generator)
+*.generated.swift
+
+## Injection III (Hot Reloading)
+iOSInjectionProject/
