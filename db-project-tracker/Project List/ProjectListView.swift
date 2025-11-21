@@ -44,7 +44,7 @@ struct ProjectListView: View {
                                     StatBubbleView(title: "Hours", stat: "290", startColor: Color.navy, endColor: Color.blue)
                                     StatBubbleView(title: "Sessions", stat: "34", startColor: Color.green, endColor: Color.lime)
                                     StatBubbleView(title: "Updates", stat: "32", startColor: Color.maroon, endColor: Color.purple)
-                                    StatBubbleView(title: "Wins", stat: "9", startColor: Color.maroon, endColor: Color.olive)
+                                    StatBubbleView(title: "Wins", stat: "9", startColor: Color.maroon, endColor: Color.olive   )
                                     
                                     Spacer()
                                 }
