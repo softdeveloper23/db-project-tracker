@@ -17,6 +17,9 @@ struct ProjectDetailView: View {
         ZStack {
             LinearGradient(colors: [Color(.navy), Color(.skyBlue)], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
+            LinearGradient(colors: [Color(.washedBlue).opacity(0), Color(.skyBlue)], startPoint: .top, endPoint: .bottom)
+                .frame(width: 1)
+                .padding(.leading, -150)
             
             VStack {
                 
