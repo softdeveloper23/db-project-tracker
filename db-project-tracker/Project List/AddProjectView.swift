@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddProjectView: View {
     
+    var project: Project
     @State var projectName: String = ""
     
     var body: some View {
@@ -35,11 +36,14 @@ struct AddProjectView: View {
                     .buttonStyle(.borderedProminent)
                     .tint(.blue)
                 }
+                Spacer()
             }
+            .padding(.horizontal)
+            .padding(.top)
         }
     }
 }
 
 #Preview {
-    AddProjectView()
+    AddProjectView(project: Project())
 }
