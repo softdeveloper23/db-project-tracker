@@ -9,10 +9,20 @@ import SwiftUI
 
 struct ProjectDetailView: View {
     
+    @Environment(\.dismiss) private var dismiss
     var project: Project
     
     var body: some View {
-        Text(project.name)
+        
+        VStack {
+            
+            Text(project.name)
+                .navigationBarBackButtonHidden(true)
+            Button("Back") {
+                // Navigate back
+                dismiss()
+            }
+        }
     }
 }
 
