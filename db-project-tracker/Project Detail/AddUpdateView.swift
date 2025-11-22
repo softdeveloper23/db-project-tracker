@@ -45,7 +45,11 @@ struct AddUpdateView: View {
                         .frame(width: 60)
                     
                     Button("Save") {
-                        // TODO
+                        // Save Project Update
+                        update.headline = headline
+                        update.summary = summary
+                        update.hours = Double(hours)!
+                        project.updates.append(update)
                         dismiss()
                     }
                     .buttonStyle(.borderedProminent)

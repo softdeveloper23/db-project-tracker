@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ProjectUpdateView: View {
+    
+    var update: ProjectUpdate
+    
     var body: some View {
         
         ZStack {
@@ -20,12 +23,12 @@ struct ProjectUpdateView: View {
                 
                 HStack {
                     
-                    Text("Thursday, October 20, 2025")
+                    Text(DateHelper.projectUpdateDate(inputDate: update.date))
                         .padding(.leading)
                     
                     Spacer()
                     
-                    Text("9 Hours")
+                    Text("\(String(Int(update.hours))) Hours")
                         .padding(.trailing)
                 }
                 .padding(.vertical, 5)
@@ -33,11 +36,11 @@ struct ProjectUpdateView: View {
                     Color(.orchid)
                 }
                 
-                Text("Project Headline")
+                Text(update.headline)
                     .font(Font.smallHeadline)
                     .padding(.horizontal)
                 
-                Text("Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. ")
+                Text(update.summary)
                     .padding(.horizontal)
                     .padding(.bottom)
             }
@@ -46,8 +49,4 @@ struct ProjectUpdateView: View {
         }
         .clipShape(RoundedRectangle(cornerRadius: 15))
     }
-}
-
-#Preview {
-    ProjectUpdateView()
 }
