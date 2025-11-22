@@ -13,6 +13,8 @@ struct AddUpdateView: View {
     @Environment(\.modelContext) private var context
     
     var project: Project
+    var update: ProjectUpdate
+    
     @State private var headline: String = ""
     @State private var summary: String = ""
     @State private var hours: String = ""
@@ -33,11 +35,14 @@ struct AddUpdateView: View {
                 TextField("Headline", text: $headline)
                     
                 
-                TextField("Summary", text: $summary)
+                TextField("Summary", text: $summary, axis: .vertical)
+                
                 
                 HStack {
                     
                     TextField("Hours", text: $hours)
+                        .keyboardType(.numberPad)
+                        .frame(width: 60)
                     
                     Button("Save") {
                         // TODO
