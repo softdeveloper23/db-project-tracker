@@ -67,12 +67,9 @@ struct ProjectDetailView: View {
                     
                     VStack(spacing: 27) {
                         
-                        ProjectUpdateView()
-                        ProjectUpdateView()
-                        ProjectUpdateView()
-                        ProjectUpdateView()
-                        ProjectUpdateView()
-                        ProjectUpdateView()
+                        ForEach(project.updates) { update in
+                            ProjectUpdateView(update: update)
+                        }
                     }
                     .padding()
                     .padding(.bottom, 80)
